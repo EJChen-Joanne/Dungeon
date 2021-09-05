@@ -1,0 +1,3 @@
+RedMedicine 5 0 0
+BlueMedicine 0 3 0
+Pills 0 0 10
