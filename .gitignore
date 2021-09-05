@@ -32,6 +32,8 @@
 *.app
 
 *.layout
+*.depend
+*.cbp
 
 ./bin
 ./obj
