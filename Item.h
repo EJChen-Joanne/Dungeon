@@ -4,7 +4,9 @@
 #include "Player.h"
 #include<iostream>
 #include<string>
-#include <windows.h>
+//#include <windows.h>
+#include<thread>
+#include<chrono>
 
 using namespace std;
 

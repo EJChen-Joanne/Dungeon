@@ -75,14 +75,17 @@ bool Item::triggerEvent(Object* obj)//pick up items//
      }
      else
      {
-         Sleep(1000);
+         //Sleep(1000);
+         std::this_thread::sleep_for(std::chrono::milliseconds(500));
          cout << "There is a chest, let's open it!"<<endl;
          player->addItem(*this);
-         Sleep(1500);
+         //Sleep(1500);
+         std::this_thread::sleep_for(std::chrono::milliseconds(1000));
          cout << endl;
          cout << "You obtain a " << this->getName()<<endl;
          cout << "It could help you to defeat the big ghost..."<<endl << endl;
-         Sleep(500);
+         //Sleep(500);
+         std::this_thread::sleep_for(std::chrono::milliseconds(500));
          player->triggerEvent(player);
          return true;
      }

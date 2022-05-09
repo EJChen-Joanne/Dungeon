@@ -4,7 +4,9 @@
 #ifndef MONSTER_H_INCLUDED
 #define MONSTER_H_INCLUDED
 #include <string>
-#include<windows.h>
+//#include<windows.h>
+#include<thread>
+#include<chrono>
 
 using namespace std;
 

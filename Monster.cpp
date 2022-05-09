@@ -1,8 +1,6 @@
 #include "Monster.h"
 
-Monster::Monster():GameCharacter()
-{
-}
+Monster::Monster():GameCharacter(){}
 
 Monster::Monster(string Mon_name,int Mon_attack,int Mon_defense,int Mon_health):GameCharacter(Mon_name,"Monster",Mon_attack,Mon_defense,Mon_health)
 {
@@ -18,13 +16,15 @@ bool Monster::triggerEvent(Object* obj)
     }
 
     while(true){
-        Sleep(1000);
+        //Sleep(1000);
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
         cout << endl <<endl;
         cout << "You start attacking..."<<endl;
 
         int mon_damage = this->takeDamage(player->getAttack());
 
-        Sleep(1000);
+        //Sleep(1000);
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
         cout << "Your attack occurs " << mon_damage << " damage" <<endl;
         int mon_temp_health = this->getcurrentHealth()-mon_damage;
         if (mon_temp_health < 0)
@@ -37,16 +37,19 @@ bool Monster::triggerEvent(Object* obj)
 
         if (this->checkIsDead())
         {
-            Sleep(1000);
+            //Sleep(1000);
+            std::this_thread::sleep_for(std::chrono::milliseconds(500));
             cout <<endl<<endl;
             cout << "------The ghost has been defeated------" << endl<<endl;
             return true;
         }
 
-        Sleep(1000);
+        //Sleep(1000);
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
         cout << "You're attacked by "<<this->getName()<<endl;
         int your_damage = player->takeDamage(this->getAttack());
-        Sleep(1000);
+        //Sleep(1000);
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
         cout << this->getName() << "'s attack occurs " << your_damage << " damage"<<endl;
         int temp_health = player->getcurrentHealth()-your_damage;
         if (temp_health < 0)
@@ -54,13 +57,15 @@ bool Monster::triggerEvent(Object* obj)
             temp_health = 0;
         }
         player->setcurrentHealth(temp_health);
-        Sleep(500);
+        //Sleep(500);
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
         cout << endl;
         player->triggerEvent(player);
 
         if (player->checkIsDead())
         {
-            Sleep(1000);
+            //Sleep(1000);
+            std::this_thread::sleep_for(std::chrono::milliseconds(500));
             cout <<endl<<endl;
             cout << "------You are dead------"<<endl<<endl;
             return true;

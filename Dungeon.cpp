@@ -1,7 +1,9 @@
 #include "Dungeon.h"
 #include <fstream>
 #include <vector>
-#include <windows.h>
+//#include <windows.h>
+#include<thread>
+#include<chrono>
 
 bool Dungeon::startGame_load()
 {
@@ -14,16 +16,10 @@ bool Dungeon::startGame_load()
 
     cout << "Welcome back, " << player.getName()<<endl;
     cout << "Let's start the game..."<<endl<<endl;
-    Sleep(2000);
-    //Debug//
-    //cout << player.getName()<<endl;
-    //player.triggerEvent(&player);
-    //cout << player.getcurrentRoom()->getIndex()<<endl;
-    //cout << player.getPreviousRoom()->getIndex()<<endl;
-    //Debug//
+    //Sleep(2000);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
     return true;
-
 }
 string Dungeon::Toupper(string a)
 {
@@ -282,7 +278,6 @@ bool Dungeon::runDungeon()
         {
             cout << endl;
             cout << "Game over..."<<endl<<endl;
-            //cout << "Would you like to try again?"<<endl;
             return 0;
         }
         else if (player.getcurrentRoom()->getisExit())
@@ -291,7 +286,6 @@ bool Dungeon::runDungeon()
             {
                 cout << endl;
                 cout << "You win!"<<endl<<endl;
-                //cout << "Want play again?"<<endl;
                 return 0;
             }
         }
@@ -306,7 +300,8 @@ void Dungeon::enterRoom(Room* room)
 {
     int index = room->getIndex();
     cout << endl;
-    Sleep(1000);
+    //Sleep(1000);
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
     cout << "|| You are in the " << "Room "<< index <<" ||"<< endl;
     cout << endl;
 
@@ -357,7 +352,6 @@ bool Dungeon::checkGameLogic()//game over or end or not//
             cout << "Incorrect choice, please try again..."<<endl;
         }
     }
-
 }
 
 bool Dungeon::checkMonsterRoom(vector<Object*> obj)
@@ -375,7 +369,8 @@ bool Dungeon::checkMonsterRoom(vector<Object*> obj)
 
 void Dungeon::handleEmptyRoom(Room* _room)
 {
-    Sleep(1000);
+    //Sleep(1000);
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
     cout << "This room is empty, choose your next action: "<<endl;
     cout << endl;
     string actions[]={"A. Move to another room","B. Save your data & Exit"};
@@ -410,7 +405,8 @@ void Dungeon::handleEmptyRoom(Room* _room)
 
 void Dungeon::handleChestRoom(Room* _room)
 {
-    Sleep(1000);
+    //Sleep(1000);
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
     cout << "You enter a room with a chest, let's take a look!"<<endl;
     cout << endl;
     int index = _room->getIndex();
@@ -467,7 +463,8 @@ void Dungeon::handleChestRoom(Room* _room)
 
 void Dungeon::handleGhostRoom(Room* _room)
 {
-    Sleep(1000);
+    //Sleep(1000);
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
     cout << "You enter a room with a ghost..."<<endl;
     cout << endl;
 
@@ -535,7 +532,8 @@ void Dungeon::handleGhostRoom(Room* _room)
 
 void Dungeon::handleNPCRoom(Room* _room)
 {
-    Sleep(1000);
+    //Sleep(1000);
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
     cout << "There is an NPC in this room, let's talk to him"<<endl;
     cout << endl;
 

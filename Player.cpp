@@ -1,8 +1,7 @@
 #include "Player.h"
 
-Player::Player():GameCharacter()
- {
- }
+Player::Player():GameCharacter(){}
+
 Player::Player(string thename,int theattack,int thedefense,int thehealth):GameCharacter(thename,"Player",theattack,thedefense,thehealth)
 {
     this->currentRoom = nullptr;
@@ -43,7 +42,8 @@ bool Player::triggerEvent(Object* player)
     }
     else
     {
-        Sleep(1000);
+        //Sleep(1000);
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
         cout << endl;
         cout << "   * Your status: "<<endl;
         cout << "   * Value of attack: " << this->getAttack()<< endl;

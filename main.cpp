@@ -2,7 +2,9 @@
 #include <string>
 #include <cctype>
 #include <ctime>
-#include <windows.h>
+//#include <windows.h>
+#include<thread>
+#include<chrono>
 #include "Item.h"
 #include "Object.h"
 #include "Dungeon.h"
@@ -64,31 +66,34 @@ int main()
     catch(...)
     {
     cout << endl<<endl;
-    Sleep(1000);
+    //Sleep(1000);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     cout << "Welcome to the Haunted House!" << endl;
     cout << "Watch out for the ghosts! Try to escape and stay survived..." << endl;
     cout << "Are you ready?"<< endl;
     cout << "Let's start the adventure..." << endl<<endl<<endl;
-    Sleep(2000);
+    //Sleep(2000);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
     cout << "What's your name:  ";
     string name;
     cin >> name;
 
-    Sleep(2000);
+    //Sleep(2000);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     cout << endl;
     cout << "Hello, " << name <<endl;
     Player player = Player(name,15,8,50);
     D = new Dungeon(player);
     D->createPlayer();
     D->createMap();
-    Sleep(2000);
+    //Sleep(2000);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     cout << "Now you enter a room..."<<endl;
 
-    Sleep(1000);
-
+    //Sleep(1000);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     }
-
 
     while(true)
     {

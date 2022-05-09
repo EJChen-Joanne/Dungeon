@@ -6,7 +6,9 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include <windows.h>
+//#include <windows.h>
+#include<thread>
+#include<chrono>
 
 using namespace std;
 
@@ -16,11 +18,11 @@ public:
     NPC();
     NPC(string N,string script,vector<Item> product);
     void listCommodity();
-    bool buyItem(Item);//??//
-    bool buyItem(int);//??//
+    //bool buyItem(Item);//??//
+    //bool buyItem(int);//??//
     void setScript(string script);
 
-    bool triggerEvent(Object*);//talk to the NPC?//
+    bool triggerEvent(Object*);
 
     void setCommodity(string filename);
     int getCommoditysize();

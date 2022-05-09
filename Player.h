@@ -6,7 +6,9 @@
 #define PLAYER_H_INCLUDED
 #include <iostream>
 #include <vector>
-#include <windows.h>
+//#include <windows.h>
+#include<thread>
+#include<chrono>
 
 using namespace std;
 typedef Room* RoomPtr;

@@ -34,13 +34,9 @@ void NPC::listCommodity()
     }
 }
 
-bool NPC::buyItem(Item item)
-{
-}
+//bool NPC::buyItem(Item item){}
 
-bool NPC::buyItem(int something)
-{
-}
+//bool NPC::buyItem(int something){}
 
 bool NPC::triggerEvent(Object* npc)
 {
@@ -76,12 +72,12 @@ bool NPC::triggerEvent(Object* npc)
         player->addItem(commodity[2]);
     }
     cout << endl;
-    Sleep(1000);
+    //Sleep(1000);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     cout << "Transaction done." << endl;
     cout << endl;
     player->triggerEvent(player);
     return true;
-
 }
 
 void NPC::setScript(string script)
